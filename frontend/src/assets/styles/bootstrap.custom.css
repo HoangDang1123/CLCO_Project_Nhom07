@@ -237,6 +237,7 @@ h1,
 
 h1,
 .h1 {
+  color: #000;
   font-size: calc(1.375rem + 1.5vw);
 }
 @media (min-width: 1200px) {
@@ -4255,6 +4256,7 @@ fieldset:disabled .btn {
     position: absolute;
   }
   .navbar-expand-lg .navbar-nav .nav-link {
+    padding-top: 12px;
     padding-right: var(--bs-navbar-nav-link-padding-x);
     padding-left: var(--bs-navbar-nav-link-padding-x);
   }
@@ -8176,6 +8178,12 @@ fieldset:disabled .btn {
 .mx-5 {
   margin-right: 3.6rem !important;
   margin-left: 3.6rem !important;
+}
+
+.mx-6 {
+  width: 120px;
+  margin-right: 0.6rem !important;
+  margin-left: 0.6rem !important;
 }
 
 .mx-auto {

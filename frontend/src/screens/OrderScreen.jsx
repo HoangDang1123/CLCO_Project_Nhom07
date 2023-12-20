@@ -107,51 +107,51 @@ const OrderScreen = () => {
     <Message variant='danger'>{error.data.message}</Message>
   ) : (
     <>
-      <h1>Order {order._id}</h1>
+      <h1>Đơn hàng {order._id}</h1>
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2>Giao hàng</h2>
               <p>
-                <strong>Name: </strong> {order.user.name}
+                <strong>Tên: </strong> {order.user.name}
               </p>
               <p>
                 <strong>Email: </strong>{' '}
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
               </p>
               <p>
-                <strong>Address:</strong>
+                <strong>Địa chỉ: </strong>
                 {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
                 {order.shippingAddress.postalCode},{' '}
                 {order.shippingAddress.country}
               </p>
               {order.isDelivered ? (
                 <Message variant='success'>
-                  Delivered on {order.deliveredAt}
+                  Đã giao hàng vào {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant='danger'>Not Delivered</Message>
+                <Message variant='danger'>Chưa giao hàng</Message>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
+              <h2>Phương thức thanh toán</h2>
               <p>
-                <strong>Method: </strong>
+                <strong>Phương thức: </strong>
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
-                <Message variant='success'>Paid on {order.paidAt}</Message>
+                <Message variant='success'>Đã thanh toán vào {order.paidAt}</Message>
               ) : (
-                <Message variant='danger'>Not Paid</Message>
+                <Message variant='danger'>Chưa thanh toán</Message>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>Sản phẩm có trong đơn hàng</h2>
               {order.orderItems.length === 0 ? (
-                <Message>Order is empty</Message>
+                <Message>Đơn hàng trống</Message>
               ) : (
                 <ListGroup variant='flush'>
                   {order.orderItems.map((item, index) => (
@@ -185,29 +185,29 @@ const OrderScreen = () => {
           <Card>
             <ListGroup variant='flush'>
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2>Thông tin đơn hàng</h2>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Items</Col>
+                  <Col>Tổng giá sản phẩm</Col>
                   <Col>${order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Shipping</Col>
+                  <Col>Phí giao hàng</Col>
                   <Col>${order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Tax</Col>
+                  <Col>Thuế</Col>
                   <Col>${order.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Total</Col>
+                  <Col>Tổng cộng</Col>
                   <Col>${order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
@@ -251,7 +251,7 @@ const OrderScreen = () => {
                       className='btn btn-block'
                       onClick={deliverHandler}
                     >
-                      Mark As Delivered
+                      Đánh dấu đã giao hàng
                     </Button>
                   </ListGroup.Item>
                 )}

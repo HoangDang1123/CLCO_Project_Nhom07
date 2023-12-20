@@ -33,12 +33,11 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar className="navbar-custom" variant='primary' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              <img src={logo} alt='ProShop' />
-              ProShop
+              <img src={logo} alt='Share and care' />
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -47,7 +46,7 @@ const Header = () => {
               <SearchBox />
               <LinkContainer to='/cart'>
                 <Nav.Link>
-                  <FaShoppingCart /> Cart
+                  <FaShoppingCart /> Giỏ hàng
                   {cartItems.length > 0 && (
                     <Badge pill bg='success' style={{ marginLeft: '5px' }}>
                       {cartItems.reduce((a, c) => a + c.qty, 0)}
@@ -59,17 +58,17 @@ const Header = () => {
                 <>
                   <NavDropdown title={userInfo.name} id='username'>
                     <LinkContainer to='/profile'>
-                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                      <NavDropdown.Item>Thông tin cá nhân</NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Item onClick={logoutHandler}>
-                      Logout
+                      Đăng xuất
                     </NavDropdown.Item>
                   </NavDropdown>
                 </>
               ) : (
                 <LinkContainer to='/login'>
                   <Nav.Link>
-                    <FaUser /> Sign In
+                    <FaUser /> Đăng nhập
                   </Nav.Link>
                 </LinkContainer>
               )}
@@ -78,13 +77,13 @@ const Header = () => {
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title='Admin' id='adminmenu'>
                   <LinkContainer to='/admin/productlist'>
-                    <NavDropdown.Item>Products</NavDropdown.Item>
+                    <NavDropdown.Item>Sản phẩm</NavDropdown.Item>
                   </LinkContainer>
                   <LinkContainer to='/admin/orderlist'>
-                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                    <NavDropdown.Item>Đơn hàng</NavDropdown.Item>
                   </LinkContainer>
                   <LinkContainer to='/admin/userlist'>
-                    <NavDropdown.Item>Users</NavDropdown.Item>
+                    <NavDropdown.Item>Người dùng</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
               )}
